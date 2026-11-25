@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Customer Churn Analysis and Retention Strategy for a Telecom Operator — Dashboard</title>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--text:#18212b;--muted:#5d6b7a;--line:#e3e7ec;--accent:#1f4e79}
+@media (prefers-color-scheme:dark){:root{--bg:#0f141a;--panel:#171d25;--text:#e8edf2;--muted:#9aa6b2;--line:#29323d;--accent:#7fb3ea}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
+header{padding:28px 20px 8px;max-width:1100px;margin:auto}h1{margin:0 0 4px;font-size:26px}p{margin:0;color:var(--muted)}
+main{max-width:1100px;margin:auto;padding:12px 20px 40px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0 20px}
+.kpi,.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.kpi b{display:block;font-size:26px;color:var(--accent)}.kpi span{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}
+.card h2{font-size:16px;margin:0 0 10px}canvas{max-height:320px}
+footer{max-width:1100px;margin:auto;padding:0 20px 30px;color:var(--muted);font-size:13px}a{color:var(--accent)}
+.note{padding:14px;border:1px dashed var(--line);border-radius:12px}
+</style>
+</head>
+<body>
+<header><h1 id="t">Customer Churn Analysis and Retention Strategy for a Telecom Operator</h1><p id="s"></p></header>
+<main><div class="kpis" id="kpis"></div><div class="grid" id="charts"></div><div id="msg"></div></main>
+<footer>Portfolio project by Mohamed El Mahdi Benchouikh · <a href="https://github.com/bmmahdi/telecom-churn-analysis-retention">Code and documents on GitHub</a></footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(async function(){
+  const get = (u) => fetch(u, {cache:'no-store'}).then(r => { if(!r.ok) throw new Error(u); return r.json(); });
+  let spec, summary = {};
+  try { spec = await get('dashboard.json'); summary = await get('data/summary.json'); }
+  catch(e){ document.getElementById('msg').innerHTML = '<p class="note">Results are being computed. Refresh in a minute.</p>'; return; }
+  document.getElementById('t').textContent = spec.title || document.title;
+  document.getElementById('s').textContent = spec.subtitle || '';
+  const fmt = (v, f) => typeof v !== 'number' ? String(v ?? '—') : f === 'percent' ? (Math.abs(v) <= 1 ? (v*100).toFixed(1) : v.toFixed(1)) + '%' : f === 'money' ? v.toLocaleString('en', {maximumFractionDigits:0}) : v.toLocaleString('en', {maximumFractionDigits:2});
+  document.getElementById('kpis').innerHTML = (spec.kpis||[]).map(k => '<div class="kpi"><b>' + fmt(summary[k.key], k.format) + '</b><span>' + (k.label||k.key) + '</span></div>').join('');
+  const css = getComputedStyle(document.documentElement);
+  const palette = ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#17becf'];
+  for (const c of (spec.charts||[])) {
+    const box = document.createElement('section'); box.className = 'card';
+    box.innerHTML = '<h2></h2><canvas></canvas>'; box.querySelector('h2').textContent = c.title;
+    document.getElementById('charts').appendChild(box);
+    try {
+      const rows = (await get(c.file)).slice(0, 60);
+      const labels = rows.map(r => r[c.x]);
+      const pie = c.type === 'pie' || c.type === 'doughnut';
+      new Chart(box.querySelector('canvas'), { type: c.type || 'bar',
+        data: { labels, datasets: (c.y||[]).map((y,i) => ({ label: y, data: rows.map(r => r[y]), backgroundColor: pie ? palette : palette[i % palette.length], borderColor: palette[i % palette.length], fill: false, tension: .25 })) },
+        options: { responsive: true, plugins: { legend: { labels: { color: css.getPropertyValue('--muted') } } }, scales: pie ? {} : { x: { ticks: { color: css.getPropertyValue('--muted') } }, y: { ticks: { color: css.getPropertyValue('--muted') } } } } });
+    } catch(e) { box.insertAdjacentHTML('beforeend', '<p class="note">Data not available yet.</p>'); }
+  }
+})();
+</script>
+</body>
+</html>

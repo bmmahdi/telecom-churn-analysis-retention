@@ -1,0 +1,49 @@
+{
+  "title": "Customer Churn Analysis and Retention Strategy",
+  "subtitle": "IBM Telco Customer Churn sample — Canadian telecom operator",
+  "kpis": [
+    { "label": "Total Customers", "key": "total_customers", "format": "number" },
+    { "label": "Churn Rate", "key": "churn_rate", "format": "percent" },
+    { "label": "Avg Monthly Charges", "key": "avg_monthly_charges", "format": "money" },
+    { "label": "Avg Tenure (months)", "key": "avg_tenure_months", "format": "number" },
+    { "label": "Monthly Revenue at Risk", "key": "monthly_revenue_at_risk", "format": "money" },
+    { "label": "Avg Customer Lifetime Value", "key": "avg_customer_lifetime_value", "format": "money" }
+  ],
+  "charts": [
+    {
+      "title": "Churn rate by contract type",
+      "type": "bar",
+      "file": "data/churn_by_contract.json",
+      "x": "Contract",
+      "y": ["churn_rate"]
+    },
+    {
+      "title": "Churn rate by tenure band",
+      "type": "line",
+      "file": "data/churn_by_tenure.json",
+      "x": "tenure_band",
+      "y": ["churn_rate"]
+    },
+    {
+      "title": "Churn rate by internet service",
+      "type": "bar",
+      "file": "data/churn_by_internet.json",
+      "x": "InternetService",
+      "y": ["churn_rate"]
+    },
+    {
+      "title": "Churn rate by payment method",
+      "type": "bar",
+      "file": "data/churn_by_payment.json",
+      "x": "PaymentMethod",
+      "y": ["churn_rate"]
+    },
+    {
+      "title": "Top segments by monthly revenue at risk",
+      "type": "bar",
+      "file": "data/revenue_at_risk_segments.json",
+      "x": "segment",
+      "y": ["revenue_at_risk"]
+    }
+  ]
+}
