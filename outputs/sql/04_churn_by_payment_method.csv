@@ -1,0 +1,9 @@
+PaymentMethod,PaperlessBilling,customers,churned_customers,churn_rate_pct,avg_tenure_months,avg_monthly_charges
+Electronic check,Yes,1742,867,49.77,25.4,79.52
+Electronic check,No,623,204,32.74,24.5,67.13
+Mailed check,Yes,656,179,27.29,21.5,53.37
+Bank transfer (automatic),Yes,891,186,20.88,43.9,75.56
+Credit card (automatic),Yes,882,168,19.05,43.1,74.75
+Mailed check,No,956,129,13.49,22.0,37.43
+Bank transfer (automatic),No,653,72,11.03,43.4,55.77
+Credit card (automatic),No,640,64,10.0,43.4,55.16

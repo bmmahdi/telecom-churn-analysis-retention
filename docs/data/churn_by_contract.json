@@ -1,0 +1,1 @@
+[{"Contract":"Month-to-month","customers":3875,"churned":1655,"churn_rate":0.4271,"avg_monthly":66.4,"revenue_at_risk":120847.1},{"Contract":"One year","customers":1473,"churned":166,"churn_rate":0.1127,"avg_monthly":65.05,"revenue_at_risk":14118.45},{"Contract":"Two year","customers":1695,"churned":48,"churn_rate":0.0283,"avg_monthly":60.77,"revenue_at_risk":4165.3}]

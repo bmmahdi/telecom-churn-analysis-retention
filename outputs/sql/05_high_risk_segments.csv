@@ -1,0 +1,16 @@
+Contract,InternetService,senior_flag,customers,churned_customers,churn_rate_pct,avg_monthly_charges,monthly_revenue_at_risk
+Month-to-month,Fiber optic,Non-senior,1492,794,53.22,86.65,68312.95
+Month-to-month,Fiber optic,Senior,636,368,57.86,87.89,32169.05
+Month-to-month,DSL,Non-senior,1064,326,30.64,50.66,15525.0
+One year,Fiber optic,Non-senior,415,81,19.52,98.33,8179.25
+Two year,Fiber optic,Non-senior,358,29,8.1,104.52,3033.55
+One year,DSL,Non-senior,520,47,9.04,61.38,2975.75
+Month-to-month,DSL,Senior,159,68,42.77,47.24,2842.25
+One year,Fiber optic,Senior,124,23,18.55,100.27,2392.7
+Month-to-month,No,Non-senior,512,94,18.36,20.41,1897.9
+Two year,DSL,Non-senior,578,8,1.38,70.24,483.1
+One year,DSL,Senior,50,6,12.0,61.56,380.5
+Two year,DSL,Senior,50,4,8.0,73.02,322.6
+Two year,Fiber optic,Senior,71,2,2.82,104.84,212.55
+One year,No,Non-senior,348,9,2.59,20.78,190.25
+Two year,No,Non-senior,614,5,0.81,21.74,113.5

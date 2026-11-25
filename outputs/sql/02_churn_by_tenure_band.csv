@@ -1,0 +1,6 @@
+tenure_band,customers,churned_customers,churn_rate_pct,avg_monthly_charges
+01 - 0-6 months,1481,784,52.94,54.74
+02 - 7-12 months,705,253,35.89,58.95
+03 - 13-24 months,1024,294,28.71,61.36
+04 - 25-48 months,1594,325,20.39,65.93
+05 - 49+ months,2239,213,9.51,73.95

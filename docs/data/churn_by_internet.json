@@ -1,0 +1,1 @@
+[{"InternetService":"Fiber optic","customers":3096,"churned":1297,"churn_rate":0.4189,"avg_monthly":91.5},{"InternetService":"DSL","customers":2421,"churned":459,"churn_rate":0.1896,"avg_monthly":58.1},{"InternetService":"No","customers":1526,"churned":113,"churn_rate":0.074,"avg_monthly":21.08}]

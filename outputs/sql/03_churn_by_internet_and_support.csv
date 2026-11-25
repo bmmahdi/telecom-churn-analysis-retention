@@ -1,0 +1,9 @@
+InternetService,TechSupport,OnlineSecurity,customers,churned_customers,churn_rate_pct,avg_monthly_charges
+DSL,No,No,788,279,35.41,47.51
+DSL,Yes,No,453,68,15.01,60.26
+DSL,No,Yes,455,66,14.51,57.0
+DSL,Yes,Yes,725,46,6.34,68.96
+Fiber optic,No,No,1765,971,55.01,86.1
+Fiber optic,Yes,No,492,143,29.07,97.71
+Fiber optic,No,Yes,465,130,27.96,93.98
+Fiber optic,Yes,Yes,374,53,14.17,105.73
