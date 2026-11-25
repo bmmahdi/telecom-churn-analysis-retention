@@ -95,11 +95,34 @@ python -m http.server 8000 --directory docs
 
 ## Key findings
 
-_The analysis runs automatically with GitHub Actions; findings appear here when it finishes._
+- Overall churn rate is 26.54% (1,869 of 7,043 customers), with $139,130.85 in monthly revenue at risk.
+- Contract type is the strongest churn driver: month-to-month churn is 42.71% versus 11.27% for one-year and 2.83% for two-year contracts.
+- Churn is heavily front-loaded: 47.44% of first-year customers churn, and the 0-6 month band peaks at 52.94%, falling to 9.51% for 49+ months.
+- Fiber optic customers without TechSupport or OnlineSecurity churn at 55.01% (971 of 1,765), versus 14.17% with both services.
+- Electronic check payers churn at 49.77% with paperless billing, versus 10.0% for credit card automatic payers without paperless billing.
+- The highest-risk segment is month-to-month fiber optic seniors (57.86% churn, $32,169.05 monthly revenue at risk), followed by month-to-month fiber optic non-seniors (53.22%, $68,312.95 at risk).
+
+**Recommendations**
+- Incentivize month-to-month customers to move to one- or two-year contracts (e.g., discounts, loyalty perks), targeting the 3,875 month-to-month base where churn is 42.71%.
+- Bundle TechSupport and OnlineSecurity into fiber optic plans, especially for the 1,765 fiber customers without both services who churn at 55.01%.
+- Launch a first-year onboarding and retention program (welcome offers, proactive support) to address the 47.44% first-year churn, and promote automatic payment methods to reduce the 49.77% electronic-check churn.
+
+<details><summary>🇫🇷 Résumé en français</summary>
+
+Cette analyse de 7 043 clients télécom révèle un taux de résiliation de 26,54 %, mettant 139 130,85 $ de revenus mensuels à risque. La résiliation se concentre sur les contrats sans engagement, les clients récents, les utilisateurs de fibre optique sans services de support/sécurité et les payeurs par chèque électronique.
+
+- Le taux de résiliation global est de 26,54 % (1 869 clients sur 7 043), avec 139 130,85 $ de revenus mensuels à risque.
+- Le type de contrat est le principal facteur : 42,71 % de résiliation en sans engagement contre 11,27 % à un an et 2,83 % à deux ans.
+- La résiliation est concentrée en début de vie client : 47,44 % la première année, avec un pic de 52,94 % entre 0 et 6 mois, contre 9,51 % après 49 mois.
+- Les clients fibre optique sans TechSupport ni OnlineSecurity résilient à 55,01 % (971 sur 1 765), contre 14,17 % avec les deux services.
+- Les payeurs par chèque électronique avec facturation dématérialisée résilient à 49,77 %, contre 10,0 % pour les paiements par carte automatique sans papier.
+- Le segment le plus à risque est celui des seniors sans engagement en fibre optique (57,86 % de résiliation, 32 169,05 $ à risque), suivi des non-seniors sans engagement en fibre (53,22 %, 68 312,95 $ à risque).
+
+</details>
 
 ## Dashboard
 
-📊 Dashboard: published with the project.
+📊 **Interactive dashboard:** https://bmmahdi.github.io/telecom-churn-analysis-retention/
 
 ## Skills demonstrated
 
